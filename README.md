@@ -1,3 +1,22 @@
+Требуется новая версия node js, докер 
+nvm --version
+nvm ls-remote
+nvm install 16...
+nvm use 16...
+Докер:
+docker-compose up -d
+Либо в консоли
+docker-compose up
+
+установка проекта:
+npm install -g @nestjs/cli
+npm i
+
+установка докера
+запуск:
+npm run start
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
