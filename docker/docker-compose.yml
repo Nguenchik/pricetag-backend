@@ -7,14 +7,14 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
-      POSTGRES_DB: db
+      POSTGRES_DB: restaurantdb
     volumes:
       - ../db:/var/lib/postgresql/data
       - ./postgresql.conf:/etc/postgresql/postgresql.conf
     ports:
-      - 7777:5432
+      - 7770:5432
   adminer:
     image: adminer
     restart: always
     ports:
-      - 7778:8080
+      - 7771:8080
