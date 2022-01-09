@@ -8,9 +8,6 @@ import { PlaceModule } from './place/place.module';
 import * as process from 'process';
 import { ConfigModule } from '@nestjs/config';
 
-console.log(222, process.env.NODE_ENV);
-console.log(222, process.env.POSTGRES_HOST);
-
 @Module({
   imports: [
     ConfigModule.forRoot({
