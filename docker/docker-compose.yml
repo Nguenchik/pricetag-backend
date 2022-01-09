@@ -1,18 +1,38 @@
 version: '3.1'
 
 services:
-  db:
-    image: postgres:14
+  main:
+    container_name: 'backend-dev'
+    build:
+      context: ../
+      dockerfile: ./Dockerfile
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    links:
+      - "db:database"
+    ports:
+      - 3031:3031
+    command: npm run start:dev
+    depends_on:
+      - postgres
     restart: always
+  postgres:
+    container_name: postgres
+    image: postgres:14
+    env_file:
+      - ../.development.env
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_DB: restaurantdb
     volumes:
-      - ../db:/var/lib/postgresql/data
-      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      - ../db:/var/lib/postgresql/data/
+#      - ./postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+#      - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
     ports:
       - 7770:5432
+    restart: always
   adminer:
     image: adminer
     restart: always
