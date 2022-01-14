@@ -4,11 +4,11 @@ import { User } from '../../entities/user.entity';
 import { UsersService } from '../../services/users.service';
 
 @Crud({
-    model: {
-        type: User
-    }
+  model: {
+    type: User,
+  },
 })
 @Controller('users')
-export class UsersController implements CrudController<User>{
-    constructor(public service: UsersService){}
+export class UsersController implements CrudController<User> {
+  constructor(public service: UsersService) {}
 }

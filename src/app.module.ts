@@ -7,6 +7,7 @@ import { CategoryModule } from './category/category.module';
 import { PlaceModule } from './place/place.module';
 import * as process from 'process';
 import { ConfigModule } from '@nestjs/config';
+import { MenuModule } from './menu/menu.module';
 
 @Module({
   imports: [
@@ -15,9 +16,9 @@ import { ConfigModule } from '@nestjs/config';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.POSTGRES_HOST,
+      host: process.env.POSTGRES_HOST || 'postgres',
       port: Number(process.env.POSTGRES_PORT),
-      username: process.env.POSTGRES_USER,
+      username: process.env.POSTGRES_USER || 'postgres',
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
@@ -26,6 +27,7 @@ import { ConfigModule } from '@nestjs/config';
     UsersModule,
     CategoryModule,
     PlaceModule,
+    MenuModule,
   ],
   controllers: [AppController],
   providers: [AppService],

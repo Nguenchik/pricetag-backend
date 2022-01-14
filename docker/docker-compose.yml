@@ -9,8 +9,6 @@ services:
     volumes:
       - ../:/app
       - /app/node_modules
-    links:
-      - "db:database"
     ports:
       - 3031:3031
     command: npm run start:dev
@@ -19,15 +17,17 @@ services:
     restart: always
   postgres:
     container_name: postgres
-    image: postgres:14
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     env_file:
       - ../.development.env
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_DB: restaurantdb
-    volumes:
-      - ../db:/var/lib/postgresql/data/
+#    volumes:
+#      - ../db:/var/lib/postgresql/data/
 #      - ./postgresql.conf:/var/lib/postgresql/data/postgresql.conf
 #      - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
     ports:

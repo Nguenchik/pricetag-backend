@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
-import { User } from '../entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
+import { Menu } from './menu.entity';
+
 @Injectable()
-export class UsersService extends TypeOrmCrudService<User> {
-  constructor(@InjectRepository(User) usersRepository: Repository<User>) {
-    super(usersRepository);
+export class MenuService extends TypeOrmCrudService<Menu> {
+  constructor(@InjectRepository(Menu) placesRepository: Repository<Menu>) {
+    super(placesRepository);
   }
 }
