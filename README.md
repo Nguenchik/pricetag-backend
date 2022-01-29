@@ -8,6 +8,11 @@ docker-compose up -d
 Либо в консоли
 docker-compose up
 
+For removing containers along with volumes associated with it, use below:
+sudo docker rm -vf $(sudo docker ps -a -q)
+For Removing images use below:
+sudo docker rmi -f $(sudo docker images -a -q)
+
 установка проекта:
 npm install -g @nestjs/cli
 npm i

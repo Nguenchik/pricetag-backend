@@ -7,6 +7,13 @@ import { PlacesService } from '../services/places.service';
   model: {
     type: Place,
   },
+  query: {
+    join: {
+      menu: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('places')
 export class PlaceController implements CrudController<Place> {

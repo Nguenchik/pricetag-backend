@@ -17,8 +17,9 @@ export class Place {
 
   // @OneToMany(() => Menu, (menu) => menu.place)
   @OneToMany(() => Menu, (menu) => menu.place, {
-    nullable: false,
+    // nullable: false,
   })
   // @JoinColumn({ name: 'menuId' })
+  // @JoinColumn()
   menu: Menu[];
 }

@@ -8,6 +8,8 @@ import { PlaceModule } from './place/place.module';
 import * as process from 'process';
 import { ConfigModule } from '@nestjs/config';
 import { MenuModule } from './menu/menu.module';
+import { EmployeeModule } from './employee/employee.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -24,10 +26,12 @@ import { MenuModule } from './menu/menu.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    UsersModule,
-    CategoryModule,
+    // UsersModule,
+    // CategoryModule,
     PlaceModule,
     MenuModule,
+    EmployeeModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

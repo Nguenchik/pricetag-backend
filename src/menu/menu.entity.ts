@@ -12,9 +12,6 @@ export class Menu {
   @Column({ unique: true, nullable: false })
   price: number;
 
-  @Column({ nullable: true })
-  placeId: number;
-
   // @Field(() => Place)
   // @ManyToOne(() => Place, (place) => place.menu, {
   //   onDelete: 'CASCADE',
@@ -23,7 +20,11 @@ export class Menu {
   @ManyToOne(() => Place, (place) => place.menu, {
     nullable: false,
     onDelete: 'CASCADE',
+    eager: true,
   })
-  @JoinColumn({ name: 'placeId' })
+  @JoinColumn()
   place: Place;
+
+  @Column({ nullable: true })
+  placeId: number;
 }
