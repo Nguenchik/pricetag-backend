@@ -1,5 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+  OneToOne,
+} from 'typeorm';
 import { Place } from '../place/entities/place.entity';
+import { Category } from '../category/category.entity';
 
 @Entity()
 export class Menu {
@@ -11,12 +19,6 @@ export class Menu {
 
   @Column({ unique: true, nullable: false })
   price: number;
-
-  // @Field(() => Place)
-  // @ManyToOne(() => Place, (place) => place.menu, {
-  //   onDelete: 'CASCADE',
-  //   nullable: false,
-  // })
   @ManyToOne(() => Place, (place) => place.menu, {
     nullable: false,
     onDelete: 'CASCADE',
@@ -27,4 +29,7 @@ export class Menu {
 
   @Column({ nullable: true })
   placeId: number;
+
+  // @OneToOne(() => Category, (category) => category.menu)
+  // category: Category;
 }

@@ -1,5 +1,13 @@
-import { Column, Entity, JoinColumn, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  PrimaryGeneratedColumn,
+  OneToMany,
+} from 'typeorm';
 import { Menu } from '../../menu/menu.entity';
+import { Category } from '../../category/category.entity';
+import { Dishes } from '../../dishes/dishes.entity';
 
 @Entity()
 export class Place {
@@ -20,6 +28,14 @@ export class Place {
     // nullable: false,
   })
   // @JoinColumn({ name: 'menuId' })
-  // @JoinColumn()
   menu: Menu[];
+
+  // @OneToMany(() => Dishes, (dishes) => dishes.place)
+  // dishes: Dishes[];
+
+  @OneToMany(() => Category, (category) => category.place, {
+    // nullable: false,
+  })
+  // @JoinColumn({ name: 'menuId' })
+  category: Category[];
 }

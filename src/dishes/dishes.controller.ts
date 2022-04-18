@@ -1,12 +1,12 @@
 import { Controller } from '@nestjs/common';
 import { Crud, CrudController } from '@nestjsx/crud';
-import { Menu } from './menu.entity';
-import { MenuService } from './menu.service';
+import { Dishes } from './dishes.entity';
+import { DishesService } from './dishes.service';
 import { Place } from '../place/entities/place.entity';
 
 @Crud({
   model: {
-    type: Menu,
+    type: Dishes,
   },
   query: {
     join: {
@@ -16,7 +16,7 @@ import { Place } from '../place/entities/place.entity';
     },
   },
 })
-@Controller('menu')
-export class MenuController implements CrudController<Menu> {
-  constructor(public service: MenuService) {}
+@Controller('dishes')
+export class DishesController implements CrudController<Dishes> {
+  constructor(public service: DishesService) {}
 }

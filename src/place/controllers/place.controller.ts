@@ -12,6 +12,9 @@ import { PlacesService } from '../services/places.service';
       menu: {
         eager: true,
       },
+      category: {
+        eager: true,
+      },
     },
   },
 })
