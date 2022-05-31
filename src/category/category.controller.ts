@@ -9,7 +9,7 @@ import { CategoryService } from './category.service';
   },
   query: {
     join: {
-      menu: {
+      subcategory: {
         eager: true,
       },
     },

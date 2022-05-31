@@ -24,18 +24,20 @@ export class Place {
   link: string;
 
   // @OneToMany(() => Menu, (menu) => menu.place)
-  @OneToMany(() => Menu, (menu) => menu.place, {
-    // nullable: false,
-  })
-  // @JoinColumn({ name: 'menuId' })
-  menu: Menu[];
+  // @OneToMany(() => Menu, (menu) => menu.place, {
+  //   // nullable: false,
+  // })
+  // // @JoinColumn({ name: 'menuId' })
+  // menu: Menu[];
 
-  // @OneToMany(() => Dishes, (dishes) => dishes.place)
-  // dishes: Dishes[];
+  @OneToMany(() => Dishes, (dishes) => dishes.place)
+  dishes: Dishes[];
 
   @OneToMany(() => Category, (category) => category.place, {
     // nullable: false,
   })
   // @JoinColumn({ name: 'menuId' })
   category: Category[];
+  // @OneToMany(() => Dishes, (dishes) => dishes.place)
+  // dishes: Dishes[];
 }

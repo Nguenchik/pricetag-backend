@@ -8,6 +8,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Category } from '../category/category.entity'
+import { Dishes } from '../dishes/dishes.entity';
 @Entity()
 export class Subcategory {
   @PrimaryGeneratedColumn()
@@ -25,4 +26,7 @@ export class Subcategory {
   category: Category;
   @Column({ nullable: true })
   categoryId: number;
+
+  @OneToMany(() => Dishes, (dishes) => dishes.subcategory)
+  dishes: Dishes[];
 }

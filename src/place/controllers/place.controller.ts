@@ -9,9 +9,6 @@ import { PlacesService } from '../services/places.service';
   },
   query: {
     join: {
-      menu: {
-        eager: true,
-      },
       category: {
         eager: true,
       },

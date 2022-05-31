@@ -32,7 +32,7 @@ import { SubcategoryModule } from './subcategory/subcategory.module';
     // UsersModule,
     CategoryModule,
     PlaceModule,
-    MenuModule,
+    // MenuModule,
     EmployeeModule,
     AuthModule,
     PortfolioModule,

@@ -19,16 +19,16 @@ export class Menu {
 
   @Column({ unique: true, nullable: false })
   price: number;
-  @ManyToOne(() => Place, (place) => place.menu, {
-    nullable: false,
-    onDelete: 'CASCADE',
-    eager: true,
-  })
-  @JoinColumn()
-  place: Place;
-
-  @Column({ nullable: true })
-  placeId: number;
+  // @ManyToOne(() => Place, (place) => place.menu, {
+  //   nullable: false,
+  //   onDelete: 'CASCADE',
+  //   eager: true,
+  // })
+  // @JoinColumn()
+  // place: Place;
+  //
+  // @Column({ nullable: true })
+  // placeId: number;
 
   // @OneToOne(() => Category, (category) => category.menu)
   // category: Category;

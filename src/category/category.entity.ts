@@ -1,5 +1,5 @@
 import { JoinColumn, Column, Entity, OneToOne, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
-import { Menu } from '../menu/menu.entity';
+// import { Menu } from '../menu/menu.entity';
 import { Place } from '../place/entities/place.entity';
 import { Dishes } from '../dishes/dishes.entity';
 import { Subcategory } from '../subcategory/subcategory.entity';
@@ -34,15 +34,15 @@ export class Category {
   @Column({ nullable: true })
   placeId: number;
 
-  @ManyToOne(() => Dishes, (dishes) => dishes.category, {
-    nullable: false,
-    onDelete: 'CASCADE',
-    eager: true,
-  })
-  @JoinColumn()
-  dishes: Dishes;
-  @Column({ nullable: true })
-  dishesId: number;
+  // @ManyToOne(() => Dishes, (dishes) => dishes.category, {
+  //   nullable: false,
+  //   onDelete: 'CASCADE',
+  //   eager: true,
+  // })
+  // @JoinColumn()
+  // dishes: Dishes;
+  // @Column({ nullable: true })
+  // dishesId: number;
 
   @OneToMany(() => Subcategory, (subcategory) => subcategory.category)
   subcategory: Subcategory[];
